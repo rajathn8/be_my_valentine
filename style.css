@@ -209,6 +209,44 @@ h2 {
   font-weight: 500;
 }
 
+/* Our Photos Section */
+.our-photos {
+  margin: 25px 0;
+}
+
+.our-photos h2 {
+  margin-bottom: 15px;
+}
+
+.photo-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 10px;
+}
+
+.our-photo {
+  width: 100%;
+  height: 150px;
+  object-fit: cover;
+  border-radius: 15px;
+  box-shadow: 0 4px 15px rgba(255, 100, 100, 0.2);
+  transition: transform 0.3s ease;
+}
+
+.our-photo:hover {
+  transform: scale(1.05);
+}
+
+@media (max-width: 480px) {
+  .photo-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .our-photo {
+    height: 120px;
+  }
+}
+
 /* More cats section */
 .more-cats {
   display: flex;

@@ -2,25 +2,20 @@ let noClickCount = 0;
 
 const messages = [
   "No",
-  "Are you sure, my love? 🥺",
-  "But I love you so much!",
-  "My beautiful fiancée please! 💍",
+  "Are you sure?",
+  "Really sure?",
+  "Think again!",
+  "Meghana please! 🥺",
   "I'll get you ice cream! 🍦",
-  "And all the cake! 🍰",
-  "And endless chocolates! 🍫",
-  "Think of our cuddles! 🤗",
-  "I'll give you all the kisses! 😘",
-  "You're my whole world! 🌍",
-  "My heart is only yours! 💖",
-  "Meghana, my love... 😢",
-  "I can't live without you!",
-  "Please say yes, baby? 🥺",
-  "You know I adore you!",
-  "Forever and always! 💕",
-  "You're my soulmate! ✨",
-  "Just say yes, my love!",
-  "I love you endlessly! 💗",
-  "YES! Say it! 💍💕"
+  "And cake! 🍰",
+  "And chocolates! 🍫",
+  "Come on...",
+  "Pretty please?",
+  "I'm sad now 😢",
+  "Just say yes!",
+  "You know you want to!",
+  "Last chance!",
+  "Fine... YES!"
 ];
 
 function growYes() {
