@@ -42,9 +42,16 @@ body {
 h1 {
   color: #ff6b6b;
   font-size: 2rem;
-  margin-bottom: 30px;
+  margin-bottom: 10px;
   text-shadow: 2px 2px 4px rgba(255, 100, 100, 0.2);
   line-height: 1.4;
+}
+
+.sub-message {
+  color: #ff8e8e;
+  font-size: 1.1rem;
+  margin-bottom: 25px;
+  font-style: italic;
 }
 
 h2 {
