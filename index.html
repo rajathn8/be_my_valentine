@@ -1,90 +1,308 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Meghana, Will You Be My Valentine?</title>
-    <link rel="stylesheet" href="style.css" />
-  </head>
-  <body>
-    <!-- Floating elements -->
-    <div class="floating-items">
-      <span class="float-item">🍦</span>
-      <span class="float-item">🍰</span>
-      <span class="float-item">🧁</span>
-      <span class="float-item">🍫</span>
-      <span class="float-item">🍬</span>
-      <span class="float-item">🍭</span>
-      <span class="float-item">🐱</span>
-      <span class="float-item">🐈</span>
-      <span class="float-item">💕</span>
-      <span class="float-item">🌸</span>
-      <span class="float-item">🍪</span>
-      <span class="float-item">🎀</span>
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+  <title>Meghana, Will You Be My Valentine?</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      min-height: 100vh;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      background: linear-gradient(135deg, #ffeef2 0%, #ffd6e0 100%);
+      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+      padding: 20px;
+    }
+
+    .container {
+      text-align: center;
+      padding: 30px 25px;
+      background: white;
+      border-radius: 24px;
+      box-shadow: 0 10px 40px rgba(255, 100, 130, 0.2);
+      max-width: 400px;
+      width: 100%;
+    }
+
+    .hidden {
+      display: none !important;
+    }
+
+    h1 {
+      color: #e84a5f;
+      font-size: 1.6rem;
+      margin-bottom: 20px;
+      line-height: 1.4;
+    }
+
+    .gif-container {
+      margin: 20px 0;
+    }
+
+    .cute-gif {
+      width: 180px;
+      height: 180px;
+      object-fit: cover;
+      border-radius: 16px;
+    }
+
+    .buttons {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      gap: 15px;
+      margin-top: 25px;
+      flex-wrap: wrap;
+    }
+
+    .btn {
+      padding: 14px 32px;
+      font-size: 1.1rem;
+      border: none;
+      border-radius: 30px;
+      cursor: pointer;
+      font-weight: 600;
+      transition: transform 0.2s, box-shadow 0.2s;
+      -webkit-tap-highlight-color: transparent;
+    }
+
+    .yes-btn {
+      background: linear-gradient(135deg, #e84a5f 0%, #ff6b7a 100%);
+      color: white;
+      box-shadow: 0 4px 15px rgba(232, 74, 95, 0.4);
+    }
+
+    .yes-btn:hover, .yes-btn:active {
+      transform: scale(1.05);
+      box-shadow: 0 6px 20px rgba(232, 74, 95, 0.5);
+    }
+
+    .no-btn {
+      background: #f0f0f0;
+      color: #999;
+      box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+    }
+
+    /* Success Page */
+    .hearts {
+      font-size: 2rem;
+      margin: 15px 0;
+    }
+
+    .hearts span {
+      display: inline-block;
+      animation: bounce 0.6s ease infinite;
+      margin: 0 3px;
+    }
+
+    .hearts span:nth-child(2) { animation-delay: 0.1s; }
+    .hearts span:nth-child(3) { animation-delay: 0.2s; }
+    .hearts span:nth-child(4) { animation-delay: 0.3s; }
+    .hearts span:nth-child(5) { animation-delay: 0.4s; }
+
+    @keyframes bounce {
+      0%, 100% { transform: translateY(0); }
+      50% { transform: translateY(-8px); }
+    }
+
+    .love-message {
+      color: #e84a5f;
+      font-size: 1.3rem;
+      margin: 20px 0;
+      font-weight: 600;
+    }
+
+    .treats {
+      display: flex;
+      justify-content: center;
+      flex-wrap: wrap;
+      gap: 8px;
+      margin: 20px 0;
+    }
+
+    .treat {
+      font-size: 2rem;
+      padding: 10px;
+      background: #fff5f7;
+      border-radius: 12px;
+      animation: wiggle 1s ease-in-out infinite;
+    }
+
+    .treat:nth-child(2) { animation-delay: 0.15s; }
+    .treat:nth-child(3) { animation-delay: 0.3s; }
+    .treat:nth-child(4) { animation-delay: 0.45s; }
+    .treat:nth-child(5) { animation-delay: 0.6s; }
+    .treat:nth-child(6) { animation-delay: 0.75s; }
+
+    @keyframes wiggle {
+      0%, 100% { transform: rotate(-3deg); }
+      50% { transform: rotate(3deg); }
+    }
+
+    .final-text {
+      color: #ff6b7a;
+      font-size: 1rem;
+      margin-top: 15px;
+    }
+
+    .cat-row {
+      display: flex;
+      justify-content: center;
+      gap: 10px;
+      margin: 15px 0;
+    }
+
+    .small-gif {
+      width: 100px;
+      height: 100px;
+      object-fit: cover;
+      border-radius: 12px;
+    }
+
+    /* Confetti */
+    .confetti {
+      position: fixed;
+      width: 10px;
+      height: 10px;
+      top: -10px;
+      pointer-events: none;
+      animation: confetti-fall 3s linear forwards;
+    }
+
+    @keyframes confetti-fall {
+      to {
+        transform: translateY(100vh) rotate(720deg);
+        opacity: 0;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Question Page -->
+  <div class="container" id="questionPage">
+    <h1>Hey Meghana! 💖<br>Will you be my Valentine?</h1>
+
+    <div class="gif-container">
+      <img
+        src="https://media.tenor.com/gUiu1zyxfzYAAAAi/bear-kiss-bear-kisses.gif"
+        alt="Cute bear"
+        class="cute-gif"
+      >
     </div>
 
-    <div class="container" id="question-container">
-      <h1 id="question">Hey Meghana! 💖<br>Will you be my Valentine?</h1>
-      <div class="buttons">
-        <button class="btn yes-btn" id="yesButton" onclick="sayYes()">Yes!</button>
-        <button class="btn no-btn" id="noButton" onclick="growYes()">No</button>
-      </div>
-      <div class="cute-grid">
-        <img src="https://media.giphy.com/media/v1.Y2lkPTc5MGI3NjExcDd6eWpxbWp5NXZwdWJxbXQwN2tjZmx6NWJ4ZGtqYnNxcWQ0dWR0eSZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/cLS1cfxvGOPVpf9rhl/giphy.gif" alt="Cute bear" class="cute-gif" />
-        <img src="https://media.giphy.com/media/v1.Y2lkPTc5MGI3NjExNnNhbTZ5MXRrOWl5aWJmcXRhdXh6Z2txcGd1ZHNnNzRkcjlvaHR1MSZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/xT0xeJpnrWC4XWblEk/giphy.gif" alt="Cute cat" class="cute-gif" />
-      </div>
+    <div class="buttons">
+      <button class="btn yes-btn" id="yesBtn">Yes! 💕</button>
+      <button class="btn no-btn" id="noBtn">No</button>
+    </div>
+  </div>
+
+  <!-- Success Page -->
+  <div class="container hidden" id="successPage">
+    <h1>Yay Meghana! 🎉<br>You made me so happy!</h1>
+
+    <div class="hearts">
+      <span>💖</span><span>💕</span><span>💗</span><span>💖</span><span>💕</span>
     </div>
 
-    <div class="container hidden" id="yes-container">
-      <h1>Yay Meghana! 🎉<br>You made me the happiest!</h1>
-      <div class="hearts">
-        <span>💖</span><span>💕</span><span>💗</span><span>💖</span><span>💕</span>
-      </div>
-      <div class="cute-grid">
-        <img src="https://media.giphy.com/media/v1.Y2lkPTc5MGI3NjExaHM0MzNhN2t0dGxmZHBqcjJ0YnJxdGJxcWRzcHI4aTV4cXJxZ3VreSZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/MDJ9IbxxvDUQM/giphy.gif" alt="Happy celebration" class="cute-gif" />
-        <img src="https://media.giphy.com/media/v1.Y2lkPTc5MGI3NjExcjBqaHRsMjRnbnFvdGkxeWMzdHJjNnI2bHlwNjV1bmNkNXczNDV1eiZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/GeimqsH0TLDt4tScGw/giphy.gif" alt="Happy cat" class="cute-gif" />
-      </div>
-      <p class="love-message">I love you Meghana! 💕</p>
-
-      <div class="treats-section">
-        <h2>Let's celebrate with treats!</h2>
-        <div class="treats">
-          <div class="treat-item">
-            <span class="treat-emoji">🍦</span>
-            <span>Ice Cream</span>
-          </div>
-          <div class="treat-item">
-            <span class="treat-emoji">🍰</span>
-            <span>Cake</span>
-          </div>
-          <div class="treat-item">
-            <span class="treat-emoji">🧁</span>
-            <span>Cupcakes</span>
-          </div>
-          <div class="treat-item">
-            <span class="treat-emoji">🍫</span>
-            <span>Chocolate</span>
-          </div>
-          <div class="treat-item">
-            <span class="treat-emoji">🍪</span>
-            <span>Cookies</span>
-          </div>
-          <div class="treat-item">
-            <span class="treat-emoji">🍬</span>
-            <span>Candy</span>
-          </div>
-        </div>
-      </div>
-
-      <div class="more-cats">
-        <img src="https://media.giphy.com/media/v1.Y2lkPTc5MGI3NjExNW9qMTFpZGR2cHJjdHNhemgyYWt1MXl0bHA0Ym44cTBkOHBtNmVjZSZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/3oriO0OEd9QIDdllqo/giphy.gif" alt="Cat with heart" class="cute-gif small" />
-        <img src="https://media.giphy.com/media/v1.Y2lkPTc5MGI3NjExaGJlNnN4ZmJsMmY5NnVhYjF4Z2ljbm95dHNsNXk4dHowNWNxbHAwcSZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/VxbvpfaTTo3le/giphy.gif" alt="Cute kitten" class="cute-gif small" />
-        <img src="https://media.giphy.com/media/v1.Y2lkPTc5MGI3NjExYjVrNnRlY2RscGRqMndhbHpmZGFjdHp1NW52ZWlvaWM0NzJ3d25jNiZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/ICOgUNjpvO0PC/giphy.gif" alt="Love cat" class="cute-gif small" />
-      </div>
-
-      <p class="final-message">Can't wait for our Valentine's Day! 🌹</p>
+    <div class="gif-container">
+      <img
+        src="https://media.tenor.com/nApec3GIqhQAAAAi/love-cat.gif"
+        alt="Happy cat"
+        class="cute-gif"
+      >
     </div>
 
-    <script src="script.js"></script>
-  </body>
+    <p class="love-message">I love you! 💕</p>
+
+    <div class="treats">
+      <span class="treat">🍦</span>
+      <span class="treat">🍰</span>
+      <span class="treat">🧁</span>
+      <span class="treat">🍫</span>
+      <span class="treat">🍪</span>
+      <span class="treat">🐱</span>
+    </div>
+
+    <div class="cat-row">
+      <img src="https://media.tenor.com/Uw9RIXhOk78AAAAi/cat-love.gif" alt="Cat" class="small-gif">
+      <img src="https://media.tenor.com/c-LGc5Z5cnoAAAAi/peach-cat.gif" alt="Cat" class="small-gif">
+      <img src="https://media.tenor.com/3cXlWUYZvzkAAAAi/cat-hearts.gif" alt="Cat" class="small-gif">
+    </div>
+
+    <p class="final-text">Can't wait for our Valentine's Day! 🌹</p>
+  </div>
+
+  <script>
+    const yesBtn = document.getElementById('yesBtn');
+    const noBtn = document.getElementById('noBtn');
+    const questionPage = document.getElementById('questionPage');
+    const successPage = document.getElementById('successPage');
+
+    let noCount = 0;
+    const noMessages = [
+      "No", "Are you sure?", "Really sure?", "Meghana please! 🥺",
+      "I'll get you ice cream! 🍦", "And cake! 🍰", "And chocolates! 🍫",
+      "Pretty please?", "I'm sad now... 😢", "Just say yes!",
+      "You know you want to!", "Fine... YES it is! 💕"
+    ];
+
+    noBtn.addEventListener('click', function() {
+      noCount++;
+
+      // Grow the yes button
+      const currentFontSize = parseFloat(window.getComputedStyle(yesBtn).fontSize);
+      yesBtn.style.fontSize = (currentFontSize + 4) + 'px';
+      yesBtn.style.padding = `${14 + noCount * 4}px ${32 + noCount * 8}px`;
+
+      // Update no button text
+      if (noCount < noMessages.length) {
+        noBtn.textContent = noMessages[noCount];
+      } else {
+        // Auto click yes after too many no's
+        showSuccess();
+      }
+
+      // Shrink no button
+      if (noCount > 2) {
+        noBtn.style.fontSize = Math.max(12 - noCount, 8) + 'px';
+        noBtn.style.padding = '8px 16px';
+        noBtn.style.opacity = Math.max(1 - noCount * 0.08, 0.4);
+      }
+    });
+
+    yesBtn.addEventListener('click', showSuccess);
+
+    function showSuccess() {
+      questionPage.classList.add('hidden');
+      successPage.classList.remove('hidden');
+      createConfetti();
+    }
+
+    function createConfetti() {
+      const colors = ['#ff6b7a', '#e84a5f', '#ffb6c1', '#ff69b4', '#ffc0cb'];
+
+      for (let i = 0; i < 50; i++) {
+        setTimeout(() => {
+          const confetti = document.createElement('div');
+          confetti.className = 'confetti';
+          confetti.style.left = Math.random() * 100 + 'vw';
+          confetti.style.background = colors[Math.floor(Math.random() * colors.length)];
+          confetti.style.borderRadius = Math.random() > 0.5 ? '50%' : '0';
+          document.body.appendChild(confetti);
+
+          setTimeout(() => confetti.remove(), 3000);
+        }, i * 50);
+      }
+    }
+  </script>
+
+</body>
 </html>
